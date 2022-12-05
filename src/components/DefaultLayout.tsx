@@ -18,7 +18,7 @@ function DefaultLayout() {
 		<div>
 			<header className="header">
 				<div className="header__options">
-					<Link to="/" className="header__logo">Wsjo Szop</Link>
+					<Link to="/" className="header__logo">WsjoSzop</Link>
 				</div>
 				<div className={ classnames("header__hamburger", { "header__hamburger--active": isSidebarOpen }) } onClick={ _toggleSidebarOpen }></div>
 				<nav className={ classnames("header__navigation", { "header__navigation--active": isSidebarOpen }) }>
