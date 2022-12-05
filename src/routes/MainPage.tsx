@@ -2,7 +2,7 @@ function MainPage() {
 	return (
 		<div className="main-page">
 			<div className="main-page__image-wrapper">
-				<img src="https://picsum.photos/seed/picsum/200/300" alt="mountains"/>
+				<img src="https://picsum.photos/900/500" className="main-page__image" alt="mountains"/>
 			</div>
 			<div className="main-page__text">
 				Lorem Ipsum is simply dummy text of the printing and typesetting

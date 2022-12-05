@@ -1,0 +1,25 @@
+.main-page {
+	padding: 15px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 50px;
+
+	@media (max-width: map-get($breakpoints, "mobile")) {
+		grid-template-columns: 1fr;
+		gap: 25px;
+	}
+
+	&__image-wrapper {
+
+	}
+
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__text {
+		font-size: 1.125rem;
+	}
+}

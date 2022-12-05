@@ -22,11 +22,20 @@ function LoginPage() {
 	})
 
 	return (
-		<div>
-			<form onSubmit={ onSubmit }>
-				<div>
-					<label htmlFor="email">Adres email</label>
+		<div className="login">
+			<form className="login__form" onSubmit={ onSubmit }>
+				<div className="login__title">
+					Login
+				</div>
+				<div className="login__form-item">
+					<label
+						htmlFor="email"
+						className="login__label"
+					>
+						Adres email
+					</label>
 					<input
+						className="login__input"
 						{
 							...register("email", {
 								required: "Adres email jest wymagany",
@@ -44,15 +53,23 @@ function LoginPage() {
 						name="email"
 						type="text"
 					/>
-					{
-						errors.email
+					<div className="login__error">
+						{
+							errors.email
 							&&
 							errors.email.message
-					}
+						}
+					</div>
 				</div>
-				<div>
-					<label htmlFor="password">Hasło</label>
+				<div className="login__form-item">
+					<label
+						htmlFor="password"
+						className="login__label"
+					>
+						Hasło
+					</label>
 					<input
+						className="login__input"
 						{
 							...register("password", {
 								required: "Hasło jest wymagane",
@@ -66,13 +83,15 @@ function LoginPage() {
 						name="password"
 						type="password"
 					/>
-					{
-						errors.password
-							&&
-							errors.password.message
-					}
+					<div className="login__error">
+						{
+							errors.password
+								&&
+								errors.password.message
+						}
+					</div>
 				</div>
-				<button type="submit">Zaloguj</button>
+				<button type="submit" className="login__submit-button">Zaloguj</button>
 			</form>
 		</div>
 	);

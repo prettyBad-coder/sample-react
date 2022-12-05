@@ -1,0 +1,48 @@
+.login {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding-top: 100px;
+
+	@media (max-width: map-get($breakpoints, "tablet")) {
+		padding-top: 50px;
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 25px;
+		width: 600px;
+		padding: 30px;
+		background-color: white;
+		border-radius: 10px;
+		box-shadow: 9px 8px 20px 0 rgb(210 208 210);
+	}
+
+	&__title {
+		font-size: 2.5rem;
+	}
+
+	&__form-item {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__input {
+		height: 40px;
+		font-size: 20px;
+		padding: 5px;
+	}
+
+	&__error {
+		font-size: .875rem;
+		color: $red;
+	}
+
+	&__submit-button {
+		padding: 10px 20px;
+		font-size: 1.125rem;
+		width: max-content;
+		margin-left: auto;
+	}
+}

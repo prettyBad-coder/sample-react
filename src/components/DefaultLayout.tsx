@@ -1,54 +1,102 @@
-import { PropsWithChildren, useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../contexts/authContext";
+import { ReactComponent as LogOutIcon } from "../assets/icons/log-out-icon.svg";
+import { ReactComponent as LanguageIcon } from "../assets/icons/language-icon.svg";
+import classnames from "classnames";
 
-function DefaultLayout(props: PropsWithChildren) {
-
-	const {
-		children
-	} = props;
+function DefaultLayout() {
 
 	const { isAuth, logout } = useContext(AuthContext);
+
+	const [ isSidebarOpen, toggleSidebarOpen ] = useState(false);
+
+	const _toggleSidebarOpen = () => toggleSidebarOpen(isOpen => !isOpen);
 
 	return (
 		<div>
 			<header className="header">
-				<div>
-					<div className="header__logo-wrapper">
-						<Link to="/">LOGO</Link>
-					</div>
-					<div className="header__language-icon">
-						language icon
-					</div>
+				<div className="header__options">
+					<Link to="/" className="header__logo">LOGO</Link>
 				</div>
-				<nav className="header__navigation">
+				<div className={ classnames("header__hamburger", { "header__hamburger--active": isSidebarOpen }) } onClick={ _toggleSidebarOpen }></div>
+				<nav className={ classnames("header__navigation", { "header__navigation--active": isSidebarOpen }) }>
+					<LanguageIcon className="header__language-icon"/>
 					<ul className="header__navigation-links-wrapper">
-						<li className="header__navigation-item">
-							<Link to="/">Strona główna</Link>
+						<li>
+							<Link
+								className="header__navigation-item header__hover-animation"
+								onClick={ _toggleSidebarOpen }
+								to="/"
+							>
+								Strona główna
+							</Link>
 						</li>
-						<li className="header__navigation-item">
+						<li>
+							<Link
+								className="header__navigation-item header__hover-animation"
+								to="/products"
+								onClick={ _toggleSidebarOpen }
+							>
+								Produkty
+							</Link>
+						</li>
+						<li>
+							<Link
+								className="header__navigation-item header__hover-animation"
+								to="/about-shop"
+								onClick={ _toggleSidebarOpen }
+							>
+								O sklepie
+							</Link>
+						</li>
+						<li>
+							<Link
+								className="header__navigation-item header__hover-animation"
+								to="/stationary-shops"
+								onClick={ _toggleSidebarOpen }
+							>
+								Sklepy stacjonarna
+							</Link>
+						</li>
+						<li>
+							<Link
+								className="header__navigation-item header__hover-animation"
+								to="/contact"
+								onClick={ _toggleSidebarOpen }
+							>
+								Kontakt
+							</Link>
+						</li>
+						<li>
 							{
 								isAuth
 									?
-									<button onClick={ () => logout() }>Wyloguj</button>
+									<button
+										className="header__logout-button header__hover-animation"
+										onClick={ () => {
+											logout();
+											_toggleSidebarOpen();
+										} }
+									>
+										Wyloguj
+										<LogOutIcon className="header__logout-icon"/>
+									</button>
 									:
-									<button>Zaloguj</button>
+									<Link
+										to="/login"
+										className="header__navigation-item header__hover-animation"
+										onClick={ _toggleSidebarOpen }
+									>
+										Zaloguj
+									</Link>
 							}
-						</li>
-						<li className="header__navigation-item">
-							<Link to="/about-shop">O sklepie</Link>
-						</li>
-						<li className="header__navigation-item">
-							<Link to="/stationary-shops">Sklepy stacjonarna</Link>
-						</li>
-						<li className="header__navigation-item">
-							<Link to="/contact">Kontakt</Link>
 						</li>
 					</ul>
 				</nav>
 			</header>
 			<main className="main">
-				{ children }
+				<Outlet/>
 			</main>
 		</div>
 	);
