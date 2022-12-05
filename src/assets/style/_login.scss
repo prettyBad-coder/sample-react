@@ -44,5 +44,11 @@
 		font-size: 1.125rem;
 		width: max-content;
 		margin-left: auto;
+		border-radius: 5px;
+		border: 1px solid gray;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }
