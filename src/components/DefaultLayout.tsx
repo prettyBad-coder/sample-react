@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../contexts/authContext";
 import { ReactComponent as LogOutIcon } from "../assets/icons/log-out-icon.svg";
 import { ReactComponent as LanguageIcon } from "../assets/icons/language-icon.svg";
+import { ReactComponent as LogInIcon } from "../assets/icons/log-in-icon.svg";
 import classnames from "classnames";
 
 function DefaultLayout() {
@@ -80,7 +81,7 @@ function DefaultLayout() {
 										} }
 									>
 										Wyloguj
-										<LogOutIcon className="header__logout-icon"/>
+										<LogOutIcon className="header__icon"/>
 									</button>
 									:
 									<Link
@@ -89,6 +90,7 @@ function DefaultLayout() {
 										onClick={ _toggleSidebarOpen }
 									>
 										Zaloguj
+										<LogInIcon className="header__icon"/>
 									</Link>
 							}
 						</li>

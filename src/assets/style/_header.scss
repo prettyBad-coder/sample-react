@@ -134,6 +134,8 @@
 		text-decoration: none;
 		font-size: 1.125rem;
 		position: relative;
+		display: flex;
+		align-items: center;
 	}
 
 	&__logout-button {
@@ -147,9 +149,13 @@
 		border: none;
 		font-size: 1.125rem;
 		position: relative;
+		
+		&:hover {
+			cursor: pointer;
+		}
 	}
 
-	&__logout-icon {
+	&__icon {
 		height: 1.125rem;
 
 		&:hover {
