@@ -18,10 +18,14 @@ function DefaultLayout() {
 		<div>
 			<header className="header">
 				<div className="header__options">
-					<Link to="/" className="header__logo">WsjoSzop</Link>
+					<Link to="/" className="header__logo" onClick={ () => toggleSidebarOpen(false) }>WsjoSzop</Link>
 				</div>
 				<div className={ classnames("header__hamburger", { "header__hamburger--active": isSidebarOpen }) } onClick={ _toggleSidebarOpen }></div>
 				<nav className={ classnames("header__navigation", { "header__navigation--active": isSidebarOpen }) }>
+					<div
+						className={ classnames("header__outer-click", { "header__outer-click--sidebar-open": isSidebarOpen }) }
+						onClick={ _toggleSidebarOpen }
+					></div>
 					<LanguageIcon className="header__language-icon"/>
 					<ul className="header__navigation-links-wrapper">
 						<li>

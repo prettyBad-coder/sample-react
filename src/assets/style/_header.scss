@@ -19,11 +19,11 @@
 
 	&__hamburger {
 		display: none;
-		z-index: 1;
+		z-index: 3;
 		position: relative;
 		width: 30px;
-		height: 10px;
-		
+		height: 30px;
+
 		&:hover {
 			cursor: pointer;
 		}
@@ -39,7 +39,7 @@
 		}
 
 		&:before {
-			top: 0;
+			top: 20px;
 		}
 
 		&:after {
@@ -87,7 +87,7 @@
 			top: 0;
 			background-color: $blue;
 			height: 100vh;
-			margin-top: 80px;
+			padding-top: 80px;
 			align-items: start;
 			padding-left: 15px;
 			gap: 30px;
@@ -95,6 +95,20 @@
 
 		&--active {
 			right: 0;
+		}
+	}
+
+	&__outer-click {
+		position: absolute;
+		top: 0;
+		left: -100vw;
+		width: 100vw;
+		height: 100vh;
+		background-color: transparent;
+		display: none;
+
+		&--sidebar-open {
+			display: block;
 		}
 	}
 
